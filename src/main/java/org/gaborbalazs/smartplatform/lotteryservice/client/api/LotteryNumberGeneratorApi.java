@@ -8,9 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Api for Lottery Number Generator
+ */
 @RequestMapping("/lottery")
 public interface LotteryNumberGeneratorApi {
 
+    /**
+     * It returns random lottery numbers by lottery type
+     * @param lotteryType type of the lottery
+     * @return ordered drawn lottery numbers generated randomly
+     */
     @RequestMapping(value = "/{lotteryType}/numbers/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     SortedSet<Integer> generateRandom(@PathVariable("lotteryType") LotteryType lotteryType);
 }

@@ -1,8 +1,5 @@
 package org.gaborbalazs.smartplatform.lotteryservice.client.enums;
 
-import java.util.List;
-import java.util.Optional;
-
 public enum LotteryType {
     FIVE_OUT_OF_NINETY("five-out-of-ninety"),
     SIX_OUT_OF_FORTY_FIVE("six-out-of-forty-five"),
@@ -16,9 +13,5 @@ public enum LotteryType {
 
     public String getPathVariableName() {
         return pathVariableName;
-    }
-
-    public static Optional<LotteryType> fromPathVariableName(String pathVariableName) {
-        return List.of(LotteryType.values()).stream().filter(lotteryType -> lotteryType.getPathVariableName().equals(pathVariableName)).findFirst();
     }
 }
