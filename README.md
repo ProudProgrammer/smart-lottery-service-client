@@ -2,6 +2,6 @@
 
 Client Api for Lottery Service
 
-### System Architecture
+### System architecture of Smart Platform
 ![System Architecture](https://raw.githubusercontent.com/ProudProgrammer/smart-tools/master/plantuml/system-architecture.png)
 
