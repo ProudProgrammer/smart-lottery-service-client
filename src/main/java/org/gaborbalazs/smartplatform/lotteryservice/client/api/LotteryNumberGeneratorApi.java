@@ -23,5 +23,5 @@ public interface LotteryNumberGeneratorApi {
      * @return ordered drawn lottery numbers generated randomly
      */
     @RequestMapping(value = "/{lotteryType}/numbers/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    SortedSet<Integer> generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(defaultValue = "default") GeneratorType generatorType);
+    SortedSet<Integer> generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
 }

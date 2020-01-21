@@ -5,13 +5,13 @@ public enum LotteryType {
     SIX_OUT_OF_FORTY_FIVE("six-out-of-forty-five"),
     SCANDINAVIAN("scandinavian");
 
-    private final String pathVariableName;
+    private final String value;
 
-    LotteryType(String pathVariableName) {
-        this.pathVariableName = pathVariableName;
+    LotteryType(String value) {
+        this.value = value;
     }
 
-    public String getPathVariableName() {
-        return pathVariableName;
+    public String getValue() {
+        return value;
     }
 }
