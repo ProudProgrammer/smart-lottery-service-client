@@ -1,5 +1,13 @@
 # Smart Platform - Lottery Service Client
-Client Api for Lottery Service
+Client API for Lottery Service
+### Generate source
+```
+mvn clean source:jar install
+```
+### Server for Lottery Service Client API
+- https://github.com/ProudProgrammer/smart-lottery-service
+### Client services (stakeholders) for Lottery Service Client API
+- https://github.com/ProudProgrammer/smart-edge-service
 ### System architecture of Smart Platform
 Applied software development techniques:
 - Microservice Architecture
