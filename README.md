@@ -4,9 +4,9 @@ Client API for Lottery Service
 ```
 mvn clean source:jar install
 ```
-### Server for Lottery Service Client API
+### Producer service
 - https://github.com/ProudProgrammer/smart-lottery-service
-### Consumer services for Lottery Service Client API
+### Consumer services
 - https://github.com/ProudProgrammer/smart-edge-service
 ### System architecture of Smart Platform
 Applied software development techniques:
