@@ -6,7 +6,7 @@ mvn clean source:jar install
 ```
 ### Producer service
 - https://github.com/ProudProgrammer/smart-lottery-service
-### Consumer services
+### Consumer services (dependants)
 - https://github.com/ProudProgrammer/smart-edge-service
 ### System architecture of Smart Platform
 Applied software development techniques:
