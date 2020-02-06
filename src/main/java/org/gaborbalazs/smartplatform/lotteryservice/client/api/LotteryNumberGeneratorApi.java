@@ -11,17 +11,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Api for Lottery Number Generator
+ * API for Lottery Number Generator.
+ * For HTTP binder frameworks like Feign it is necessary to specify (redundantly) the name field for {@link RequestParam} in order to be properly bound.
  */
 @RequestMapping("/lottery")
 public interface LotteryNumberGeneratorApi {
 
     /**
-     * It returns random lottery numbers by lottery type
-     * @param lotteryType type of the lottery
-     * @param generatorType type of the number generator type
-     * @return ordered drawn lottery numbers generated randomly
+     * Lottery number generator method based on lottery type.
+     *
+     * @param lotteryType   is the type of the lottery
+     * @param generatorType is the type of the number generator
+     * @return the drawn numbers
      */
-    @RequestMapping(value = "/{lotteryType}/numbers/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{lotteryType}/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     SortedSet<Integer> generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
+
+    /**
+     * Lottery number generator method based on quantity and pool size.
+     *
+     * @param quantity      is the number of drawn numbers
+     * @param poolSize      is the pool of numbers
+     * @param generatorType is the type of the number generator
+     * @return the drawn numbers
+     */
+    @RequestMapping(value = "/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    SortedSet<Integer> generate(@RequestParam(name = "quantity") int quantity, @RequestParam(name = "poolSize") int poolSize, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
 }
