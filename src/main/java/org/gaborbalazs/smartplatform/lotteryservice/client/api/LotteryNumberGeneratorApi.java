@@ -21,7 +21,7 @@ public interface LotteryNumberGeneratorApi {
      *
      * @param lotteryType   is the type of the lottery
      * @param generatorType is the type of the number generator
-     * @return the drawn numbers
+     * @return the generated numbers
      */
     @RequestMapping(value = "/{lotteryType}/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     DrawnNumbers generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
@@ -32,7 +32,7 @@ public interface LotteryNumberGeneratorApi {
      * @param quantity      is the number of drawn numbers
      * @param poolSize      is the pool of numbers
      * @param generatorType is the type of the number generator
-     * @return the drawn numbers
+     * @return the generated numbers
      */
     @RequestMapping(value = "/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     DrawnNumbers generate(@RequestParam(name = "quantity") int quantity, @RequestParam(name = "poolSize") int poolSize, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
