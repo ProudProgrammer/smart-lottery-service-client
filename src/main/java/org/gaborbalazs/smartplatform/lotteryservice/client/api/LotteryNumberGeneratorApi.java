@@ -1,6 +1,6 @@
 package org.gaborbalazs.smartplatform.lotteryservice.client.api;
 
-import org.gaborbalazs.smartplatform.lotteryservice.client.domain.DrawnNumbers;
+import org.gaborbalazs.smartplatform.lotteryservice.client.domain.GeneratedNumbers;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType;
 import org.springframework.http.MediaType;
@@ -24,7 +24,7 @@ public interface LotteryNumberGeneratorApi {
      * @return the generated numbers
      */
     @RequestMapping(value = "/{lotteryType}/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    DrawnNumbers generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
+    GeneratedNumbers generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
 
     /**
      * Lottery number generator method based on quantity and pool size.
@@ -35,5 +35,5 @@ public interface LotteryNumberGeneratorApi {
      * @return the generated numbers
      */
     @RequestMapping(value = "/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    DrawnNumbers generate(@RequestParam(name = "quantity") int quantity, @RequestParam(name = "poolSize") int poolSize, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
+    GeneratedNumbers generate(@RequestParam(name = "quantity") int quantity, @RequestParam(name = "poolSize") int poolSize, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
 }

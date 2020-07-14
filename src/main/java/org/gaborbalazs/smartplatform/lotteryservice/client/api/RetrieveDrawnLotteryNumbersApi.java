@@ -23,5 +23,5 @@ public interface RetrieveDrawnLotteryNumbersApi {
      * @return the drawn numbers
      */
     @RequestMapping(value = "/{lotteryType}/drawnNumbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<? extends Draw> retrieve(@PathVariable("lotteryType") LotteryType lotteryType);
+    List<Draw> retrieve(@PathVariable("lotteryType") LotteryType lotteryType);
 }
