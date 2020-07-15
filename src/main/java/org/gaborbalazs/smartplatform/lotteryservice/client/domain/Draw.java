@@ -1,11 +1,14 @@
 package org.gaborbalazs.smartplatform.lotteryservice.client.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType;
 
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
+@JsonDeserialize(builder = Draw.Builder.class)
 public final class Draw {
 
     private final LotteryType lotteryType;
@@ -52,6 +55,7 @@ public final class Draw {
         return new Builder();
     }
 
+    @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
     public static final class Builder {
         private LotteryType lotteryType;
         private int year;

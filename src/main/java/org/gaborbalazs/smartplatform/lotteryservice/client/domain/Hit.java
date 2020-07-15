@@ -1,7 +1,11 @@
 package org.gaborbalazs.smartplatform.lotteryservice.client.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import java.util.Currency;
 
+@JsonDeserialize(builder = Hit.Builder.class)
 public final class Hit {
 
     private final int hits;
@@ -14,10 +18,6 @@ public final class Hit {
         this.tickets = builder.tickets;
         this.prize = builder.prize;
         this.currency = builder.currency;
-    }
-
-    public static Builder newHit() {
-        return new Builder();
     }
 
     public int getHits() {
@@ -36,16 +36,11 @@ public final class Hit {
         return currency;
     }
 
-    @Override
-    public String toString() {
-        return "Hit{" +
-                "hits=" + hits +
-                ", tickets=" + tickets +
-                ", prize=" + prize +
-                ", currency=" + currency +
-                '}';
+    public static Builder newHit() {
+        return new Builder();
     }
 
+    @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
     public static final class Builder {
         private int hits;
         private int tickets;

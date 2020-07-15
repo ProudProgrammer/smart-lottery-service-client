@@ -1,10 +1,13 @@
 package org.gaborbalazs.smartplatform.lotteryservice.client.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.GeneratorType;
 
 import java.util.Collections;
 import java.util.SortedSet;
 
+@JsonDeserialize(builder = GeneratedNumbers.Builder.class)
 public final class GeneratedNumbers {
 
     private final String lotteryType;
@@ -33,6 +36,7 @@ public final class GeneratedNumbers {
         return new Builder();
     }
 
+    @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
     public static final class Builder {
         private String lotteryType;
         private GeneratorType generatorType;
