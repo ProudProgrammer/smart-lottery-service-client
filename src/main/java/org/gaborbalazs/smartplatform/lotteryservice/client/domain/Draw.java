@@ -2,6 +2,9 @@ package org.gaborbalazs.smartplatform.lotteryservice.client.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType;
 
 import java.time.LocalDate;
@@ -60,6 +63,8 @@ public final class Draw {
         private LotteryType lotteryType;
         private int year;
         private int week;
+        @JsonSerialize(using = LocalDateSerializer.class)
+        @JsonDeserialize(using = LocalDateDeserializer.class)
         private LocalDate date;
         private List<Hit> hits;
         private List<DrawnNumbers> drawnNumbers;
