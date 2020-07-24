@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.DrawType;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public final class DrawnNumbers {
         return new Builder();
     }
 
-    @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
+    @JsonPOJOBuilder(withPrefix = "")
     public static final class Builder {
         private DrawType drawType;
         private List<Integer> numbers;
@@ -48,7 +49,7 @@ public final class DrawnNumbers {
         }
 
         public Builder numbers(List<Integer> numbers) {
-            this.numbers = numbers;
+            this.numbers = new ArrayList<>(numbers);
             return this;
         }
     }

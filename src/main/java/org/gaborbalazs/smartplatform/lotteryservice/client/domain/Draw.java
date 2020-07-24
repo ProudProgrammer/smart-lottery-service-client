@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public final class Draw {
     }
 
     public List<Hit> getHits() {
-        return hits;
+        return Collections.unmodifiableList(hits);
     }
 
     public List<DrawnNumbers> getDrawnNumbers() {
@@ -58,7 +59,7 @@ public final class Draw {
         return new Builder();
     }
 
-    @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
+    @JsonPOJOBuilder(withPrefix = "")
     public static final class Builder {
         private LotteryType lotteryType;
         private int year;
@@ -97,12 +98,12 @@ public final class Draw {
         }
 
         public Builder hits(List<Hit> hits) {
-            this.hits = hits;
+            this.hits = new ArrayList<>(hits);
             return this;
         }
 
         public Builder drawnNumbers(List<DrawnNumbers> drawnNumbers) {
-            this.drawnNumbers = drawnNumbers;
+            this.drawnNumbers = new ArrayList<>(drawnNumbers);
             return this;
         }
     }
