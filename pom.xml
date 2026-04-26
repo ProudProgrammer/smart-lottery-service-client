@@ -11,13 +11,11 @@
 
     <properties>
         <project.version>1.0-SNAPSHOT</project.version>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-web.version>6.0.0</spring-web.version>
-        <jackson.version>2.11.1</jackson.version>
-        <spring-web.version>5.1.9.RELEASE</spring-web.version>
-        <jackson.version>2.12.7.1</jackson.version>
+        <spring-web.version>7.0.7</spring-web.version>
+        <jackson.version>2.21.2</jackson.version>
     </properties>
 
     <dependencies>
