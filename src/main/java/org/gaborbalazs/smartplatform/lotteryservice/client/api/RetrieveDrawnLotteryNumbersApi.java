@@ -13,7 +13,6 @@ import java.util.List;
  * API for Retrieving Drawn Lottery Numbers.
  * For HTTP binder frameworks like Feign it is necessary to specify (redundantly) the name field for {@link PathVariable} in order to be properly bound.
  */
-@RequestMapping("/retrieve")
 public interface RetrieveDrawnLotteryNumbersApi {
 
     /**
@@ -22,6 +21,6 @@ public interface RetrieveDrawnLotteryNumbersApi {
      * @param lotteryType is the type of the lottery
      * @return the drawn numbers
      */
-    @RequestMapping(value = "/{lotteryType}/drawnNumbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/retrieve/{lotteryType}/drawnNumbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     List<Draw> retrieve(@PathVariable("lotteryType") LotteryType lotteryType);
 }

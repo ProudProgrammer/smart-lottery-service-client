@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  * API for Lottery Number Generator.
  * For HTTP binder frameworks like Feign it is necessary to specify (redundantly) the name field for {@link RequestParam} in order to be properly bound.
  */
-@RequestMapping("/lottery")
 public interface LotteryNumberGeneratorApi {
 
     /**
@@ -23,7 +22,7 @@ public interface LotteryNumberGeneratorApi {
      * @param generatorType is the type of the number generator
      * @return the generated numbers
      */
-    @RequestMapping(value = "/{lotteryType}/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/lottery/{lotteryType}/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     GeneratedNumbers generate(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
 
     /**
@@ -34,6 +33,6 @@ public interface LotteryNumberGeneratorApi {
      * @param generatorType is the type of the number generator
      * @return the generated numbers
      */
-    @RequestMapping(value = "/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/lottery/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     GeneratedNumbers generate(@RequestParam(name = "quantity") int quantity, @RequestParam(name = "poolSize") int poolSize, @RequestParam(name = "generatorType", defaultValue = "default") GeneratorType generatorType);
 }
