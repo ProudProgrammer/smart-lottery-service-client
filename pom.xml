@@ -15,7 +15,7 @@
         <maven.compiler.source>25</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-web.version>7.0.7</spring-web.version>
-        <jackson.version>2.21.2</jackson.version>
+        <jackson.version>2.22.0</jackson.version>
     </properties>
 
     <dependencies>
